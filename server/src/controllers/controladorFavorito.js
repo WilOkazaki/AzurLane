@@ -10,7 +10,7 @@ const addFavorite = async (req, res) => {
 
     if (isFavorite) return responseHandler.ok(res, isFavorite);
 
-    const favorite = new favoriteModel({
+    const favorite = new modeloFavoritos({
       ...req.body,
       user: req.user.id
     });

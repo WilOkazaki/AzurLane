@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
-import modeloOpciones from "./modeloOpciones"
-import cryto from "crypto"
+import modeloOpciones from "./modeloOpciones.js"
+import crypto from "crypto"
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -33,7 +33,7 @@ userSchema.methods.setPassword = function (password) {
       this.salt,
       1000,
       64,
-      "sakura512"
+      "sakura"
     ).toString("hex");
   };
   
@@ -43,13 +43,13 @@ userSchema.methods.setPassword = function (password) {
       this.salt,
       1000,
       64,
-      "sakura512"
+      "sakura"
     ).toString("hex");
   
     return this.password === hash;
   };
   
-  const modeloUsuario = mongoose.model("User", userSchema);
+  const modeloUsuario = mongoose.model("Usuario", userSchema);
   
   export default modeloUsuario;
 
